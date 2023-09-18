@@ -1,21 +1,21 @@
 body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    margin: 0;
+    padding: 0;
     font-family: "Roboto", sans-serif;
 }
 
 #header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space elements evenly within the header */
-    background-color: black; /* Background color for the header */
-    color: white; /* Text color */
-    
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+
 }
 
 #logo {
     display: flex;
-    align-items: normal; /* Center items vertically within the logo container */
+    align-items: normal;
     font-size: large;
 }
 
@@ -25,7 +25,6 @@ body {
     align-items: center;
 }
 
-/* Style the search input and button as needed */
 #search input {
     height: 2.8rem;
     width: 500px;
@@ -48,7 +47,7 @@ body {
 
 #right-images {
     display: flex;
-    align-items: center; /* Center items vertically within the right images container */
+    align-items: center;
 }
 
 #right-images img {
@@ -72,14 +71,14 @@ body {
 }
 
 #secondNav ul a {
-    display: block; /* Make links block-level elements to take up the entire list item */
-    text-decoration: none; /* Remove underlines from links */
-    color: white; /* Set link color */
-    padding: 10px; /* Add padding for spacing */
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
 }
 
 #secondNav ul li:hover {
-    background-color: gray; /* Change the background color on hover */
+    background-color: gray;
 }
 
 .x1 {
@@ -126,26 +125,25 @@ body {
 }
 
 .horizontal-list li:hover {
-    background-color: white; /* Change the background color on hover */
+    background-color: white;
     color: black;
 }
+
 .horizontal-list {
-    list-style: none; /* Remove default list bullets */
-    padding: 0; /* Remove default list padding */
-    display: flex; /* Use flexbox to create a horizontal list */
+    list-style: none;
+    padding: 0;
+    display: flex;
 }
 
 .horizontal-list li {
-    margin-right: 20px; /* Add spacing between list items */
-    /* You can adjust the margin-right value as needed */
+    margin-right: 20px;
 }
 
-/* Optional: Style the list items, e.g., background color, text color, etc. */
 .horizontal-list li {
-    background-color: #5A5A5A; /* Example background color */
-    color: white; /* Example text color */
-    padding: 5px 20px; /* Example padding */
-    border-radius: 5px; /* Example border radius */
+    background-color: #5A5A5A;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
 }
 
 .horizontalAndMovie {
@@ -162,11 +160,11 @@ body {
 }
 
 .video-cards {
-    list-style-type: none; /* Remove default list bullets */
-    padding: 0; /* Remove default list padding */
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap; /* Allow cards to wrap to the next line */
-    justify-content: space-between; /* Space cards evenly within the container */
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .video-cards li {
@@ -178,7 +176,7 @@ body {
 .video-cards li img {
     width: 100%;
     height: auto;
-    border-radius: 10px; /* Rounded corners only at the top */
+    border-radius: 10px;
 }
 
 .card-content {
@@ -194,4 +192,3 @@ body {
     color: gray;
     margin-top: 5px;
 }
-
