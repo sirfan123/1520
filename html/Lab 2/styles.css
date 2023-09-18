@@ -1,103 +1,197 @@
-/* Reset some default styles */
-body, h1, h2, p {
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: "Roboto", sans-serif;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space elements evenly within the header */
+    background-color: black; /* Background color for the header */
+    color: white; /* Text color */
+    
+}
+
+#logo {
+    display: flex;
+    align-items: normal; /* Center items vertically within the logo container */
+    font-size: large;
+}
+
+#search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Style the search input and button as needed */
+#search input {
+    height: 2.8rem;
+    width: 500px;
+    background: white;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+}
+
+#search button {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#right-images {
+    display: flex;
+    align-items: center; /* Center items vertically within the right images container */
+}
+
+#right-images img {
+    margin-right: 15px;
+    border-radius: 1.625rem;
+}
+
+#mainDiv {
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+#secondNav {
+    float: left;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    width: 15%;
+    display: flex;
+}
+
+#secondNav ul a {
+    display: block; /* Make links block-level elements to take up the entire list item */
+    text-decoration: none; /* Remove underlines from links */
+    color: white; /* Set link color */
+    padding: 10px; /* Add padding for spacing */
+}
+
+#secondNav ul li:hover {
+    background-color: gray; /* Change the background color on hover */
+}
+
+.x1 {
+    list-style-image: url(images/navigation_bar_2/home.png);
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+
+.x2 {
+    list-style-image: url(images/navigation_bar_2/shorts.png);
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+
+.x3 {
+    list-style-image: url(images/navigation_bar_2/subscriptions.png);
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+
+.x4 {
+    list-style-image: url(images/navigation_bar_2/music.png);
+    padding-left: 20px;
+    padding-bottom: 50px;
+}
+
+.x5 {
+    list-style-image: url(images/navigation_bar_2/library.png);
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+
+.x6 {
+    list-style-image: url(images/navigation_bar_2/history.png);
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+
+#horizontalDiv {
+    display: flex;
+    background-color: black;
     margin: 0;
     padding: 0;
 }
 
-/* Apply some basic styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: black;
-}
-
-header {
-    background-color:black;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.search {
-    display: flex;
-    align-items: center;
-}
-
-input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #ff0000;
+.horizontal-list li:hover {
+    background-color: white; /* Change the background color on hover */
     color: black;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+}
+.horizontal-list {
+    list-style: none; /* Remove default list bullets */
+    padding: 0; /* Remove default list padding */
+    display: flex; /* Use flexbox to create a horizontal list */
 }
 
-.user {
-    display: flex;
-    align-items: center;
+.horizontal-list li {
+    margin-right: 20px; /* Add spacing between list items */
+    /* You can adjust the margin-right value as needed */
 }
 
-.user img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-right: 8px;
+/* Optional: Style the list items, e.g., background color, text color, etc. */
+.horizontal-list li {
+    background-color: #5A5A5A; /* Example background color */
+    color: white; /* Example text color */
+    padding: 5px 20px; /* Example padding */
+    border-radius: 5px; /* Example border radius */
 }
 
-/* Style the video section */
-.video-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.left-nav {
-    width: 250px;
-    background-color: black;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px 10px;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    bottom: 0;
-    overflow-y: auto;
-}
-
-.left-nav ul {
-    list-style: none;
+.horizontalAndMovie {
+    margin: 0;
     padding: 0;
 }
 
-.left-nav li {
-    margin-bottom: 10px;
+#movieDiv {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: white;
+    display: flex;
 }
 
-.left-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 16px;
-    display: block;
+.video-cards {
+    list-style-type: none; /* Remove default list bullets */
+    padding: 0; /* Remove default list padding */
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: space-between; /* Space cards evenly within the container */
 }
 
-/* Adjust main content to make space for the left navigation bar */
-main {
-    margin-left: 250px;
-    padding: 20px;
+.video-cards li {
+    background-color: black;
+    color: white;
+    margin-right: 1px;
 }
+
+.video-cards li img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners only at the top */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h4 {
+    margin: 0;
+
+}
+
+.card-content p {
+    color: gray;
+    margin-top: 5px;
+}
+
