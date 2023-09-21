@@ -17,6 +17,7 @@ body {
     display: flex;
     align-items: normal;
     font-size: large;
+    padding-left: 10px;
 }
 
 #search {
