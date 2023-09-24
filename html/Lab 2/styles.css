@@ -207,17 +207,23 @@ body {
         display: none;
     }
 
-    .video-cards li {
-        width: 100%;
-        margin-right: 0;
+    #header {
+        display: block;
     }
 
-    #search {
-        margin-top: 10px;
+    #search input {
+        padding-top: 10px;
+        width: 300px;
     }
 
     #secondNav {
-        width: 100%;
+        width: 100%; /* Full width for secondNav */
         text-align: center;
+        float:none;
+        height: auto;
     }
+    #secondNav li{
+        padding-bottom: 0%;
+    }
+    
 }
