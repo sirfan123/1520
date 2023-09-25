@@ -217,7 +217,7 @@ body {
     }
 
     #secondNav {
-        width: 100%; /* Full width for secondNav */
+        width: 100%; 
         text-align: center;
         float:none;
         height: auto;
