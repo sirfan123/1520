@@ -40,42 +40,6 @@ function plotMortgageCurves(principal, annualInterestRate, monthlyPayment, loanP
     plotValues(plottingArrays);
 }
 
-/*function plotValues(plottingArrays) {
-    const xArray = plottingArrays[0];
-    const monthlyInterestPaymentValues = plottingArrays[1];
-    const monthlyPrincipalPaymentValues = plottingArrays[2];
-    const monthlyPrincipalValues = plottingArrays[3];
-
-    const data1 = {
-        x: xArray,
-        y: monthlyInterestPaymentValues,
-        type: 'line',
-        mode: 'lines',
-        name: 'Interest Payment',
-        marker: { color: 'orange' },
-    };
-
-    const data2 = {
-        x: xArray,
-        y: monthlyPrincipalPaymentValues,
-        type: 'line',
-        mode: 'lines',
-        name: 'Principal Payment',
-        marker: { color: 'blue' },
-    };
-
-    
-
-    const layout = {
-        title: 'Monthly Payments Over Time',
-        xaxis: { title: 'x-axis' },
-        yaxis: { title: 'y-axis'}
-    };
-
-    
-
-    Plotly.newPlot("monthlyPrincipalValues", xArray, monthlyInterestPaymentValues);
-}*/
 function plotValues(plottingArrays) {
     const xArray = plottingArrays[0];
     const monthlyInterestPaymentValues = plottingArrays[1];
@@ -86,7 +50,7 @@ function plotValues(plottingArrays) {
     const subplot1 = {
         x: xArray,
         y: monthlyInterestPaymentValues,
-        type: 'scatter',
+        type: 'line',
         mode: 'lines',
         name: 'Interest Payment',
         marker: { color: 'blue' },
@@ -95,20 +59,20 @@ function plotValues(plottingArrays) {
     const subplot2 = {
         x: xArray,
         y: monthlyPrincipalPaymentValues,
-        type: 'scatter',
+        type: 'line',
         mode: 'lines',
         name: 'Principal Payment',
-        marker: { color: 'green' },
+        marker: { color: 'orange' },
     };
 
     const subplot3 = {
         x: xArray,
         y: monthlyPrincipalValues,
-        type: 'scatter',
+        type: 'line',
         mode: 'lines',
-        name: 'Remaining Principal',
-        marker: { color: 'red' },
-    };
+        name: 'Principal Value',
+        marker: { color: 'blue'}
+    }
 
     const layout1 = {
         title: 'Monthly Payments Towards Interest and Principal Over Time',
@@ -117,13 +81,19 @@ function plotValues(plottingArrays) {
     };
 
     const layout2 = {
+        title: 'Principal Over Time',
+        xaxis: { title: 'Month' },
+        yaxis: { title: 'Amount ($)' },
+    };
+
+    const layout3 = {
         title: 'Principal Value Over Time',
         xaxis: { title: 'Month' },
         yaxis: { title: 'Amount ($)' },
     };
 
     const figure1 = { data: [subplot1, subplot2], layout: layout1 };
-    const figure2 = { data: [subplot3], layout: layout2 };
+    const figure2 = { data: [subplot3], layout: layout3 };
 
     Plotly.newPlot("monthlyInterestRateAndPrincipalPayments", figure1);
     Plotly.newPlot("monthlyPrincipalValues", figure2);
