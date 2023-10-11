@@ -5,6 +5,7 @@ function getLoanInformation() {
     let loanPeriodInYears = getLoanPeriodInYears();
     return [housePrice, downPayment, annualInterestRate, loanPeriodInYears];
 }
+
 function getHousePrice() {
     return parseFloat(prompt("Enter the house price:"));
 }
@@ -14,31 +15,28 @@ function getDownPayment() {
 }
 
 function getAnnualInterestRate() {
-    return parseFloat(prompt("Enter the annual interest rate (as a percentage):"));
+    return parseFloat (prompt("Enter the annual interest rate (as a percentage):")); // Convert to monthly fractional rate
 }
 
 function getLoanPeriodInYears() {
     return parseInt(prompt("Enter the loan period in years:"));
 }
 
-function computeMontlyMortgagePayments(P, r, n) {
+function computeMonthlyMortgagePayments(P, r, n) {
     return (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 }
 
-function displayResults(housePrice, downPayment, annualInterestRate, loanPeriodInYears, monthlyMortgagePayments) {
-    document.write("House price: " + housePrice + "<br>");
-    document.write("Down payment: " + downPayment + "<br>");
-    document.write("Annual Interest Rate: " + annualInterestRate + "<br>");
-    document.write("Loan Period in Years: " + loanPeriodInYears + "<br>");
-    document.write("Monthly Mortgage Payments: " + monthlyMortgagePayments + "<br>");
+function displayResults(housePrice, downPayment, annualInterestRate, loanPeriodInYears, monthlyMortgagePayments, principal_P) {
+    document.write("<h2>Mortgage Details</h2>");
+    document.write("<p><strong>House Price:</strong> $" + housePrice + "</p>");
+    document.write("<p><strong>Down Payment:</strong> $" + downPayment + "</p>");
+    document.write("<p><strong>Principal:</strong> $" + principal_P + "</p>");
+    document.write("<p><strong>Annual Interest Rate:</strong> " + (annualInterestRate)*100 + "%</p>");
+    document.write("<p><strong>Loan Period in Years:</strong> " + loanPeriodInYears + " years</p>");
+    document.write("<p><strong>Monthly Mortgage Payments:</strong> $" + monthlyMortgagePayments.toFixed(2) + " per month" + "</p>");
+    document.write("<p><strong>Minimum Monthly Incoming per House Hold:</strong> $" + (monthlyMortgagePayments/.3).toFixed(2) + "</p>");
 }
 
-
-function plotMortgageCurves(principal, annualInterestRate, monthlyPayment, loanPeriod) {
-    let plottingArrays = getLoanPaymentValues(principal, monthlyPayment,
-        annualInterestRate, loanPeriod);
-    plotValues(plottingArrays);
-}
 
 function plotValues(plottingArrays) {
     const xArray = plottingArrays[0];
@@ -46,76 +44,72 @@ function plotValues(plottingArrays) {
     const monthlyPrincipalPaymentValues = plottingArrays[2];
     const monthlyPrincipalValues = plottingArrays[3];
 
-    // Create two subplots for Figure 1 and Figure 2
+    // Define Data for interest and principal payments
+    const data1 = [
+        {
+            x: xArray,
+            y: monthlyInterestPaymentValues,
+            mode: "lines",
+            name: "Interest Monthly Payment"
+        },
+        {
+            x: xArray,
+            y: monthlyPrincipalPaymentValues,
+            mode: "lines",
+            name: "Principal Monthly Payment"
+        }
+    ];
+
+    // Define Data for principal value over time
+    const data2 = [
+        {
+            x: xArray,
+            y: monthlyPrincipalValues,
+            mode: "lines",
+            name: "Principal Value"
+        }
+    ];
+
+    // Create two subplots
     const subplot1 = {
-        x: xArray,
-        y: monthlyInterestPaymentValues,
-        type: 'line',
-        mode: 'lines',
-        name: 'Interest Payment',
-        marker: { color: 'blue' },
+        data: data1,
+        layout: {
+            title: 'Monthly Payments Towards Interest and Principal Over Time',
+            xaxis: { title: 'Month' },
+            yaxis: { title: 'Amount ($)' },
+        }
     };
 
     const subplot2 = {
-        x: xArray,
-        y: monthlyPrincipalPaymentValues,
-        type: 'line',
-        mode: 'lines',
-        name: 'Principal Payment',
-        marker: { color: 'orange' },
+        data: data2,
+        layout: {
+            title: 'Principal Value Over Time',
+            xaxis: { title: 'Month' },
+            yaxis: { title: 'Amount ($)' },
+        }
     };
 
-    const subplot3 = {
-        x: xArray,
-        y: monthlyPrincipalValues,
-        type: 'line',
-        mode: 'lines',
-        name: 'Principal Value',
-        marker: { color: 'blue'}
-    }
-
-    const layout1 = {
-        title: 'Monthly Payments Towards Interest and Principal Over Time',
-        xaxis: { title: 'Month' },
-        yaxis: { title: 'Amount ($)' },
-    };
-
-    const layout2 = {
-        title: 'Principal Over Time',
-        xaxis: { title: 'Month' },
-        yaxis: { title: 'Amount ($)' },
-    };
-
-    const layout3 = {
-        title: 'Principal Value Over Time',
-        xaxis: { title: 'Month' },
-        yaxis: { title: 'Amount ($)' },
-    };
-
-    const figure1 = { data: [subplot1, subplot2], layout: layout1 };
-    const figure2 = { data: [subplot3], layout: layout3 };
-
-    Plotly.newPlot("monthlyInterestRateAndPrincipalPayments", figure1);
-    Plotly.newPlot("monthlyPrincipalValues", figure2);
+    // Create the subplots using Plotly
+    Plotly.newPlot("monthlyInterestRateAndPrincipalPayments", subplot1);
+    Plotly.newPlot("monthlyPrincipalValues", subplot2);
 }
 
-
 function getLoanPaymentValues(initialPrincipal, monthlyPayment, annualInterestRate, loanPeriod) {
-
-    //code
-     xArray = [];
-     monthlyInterestPaymentValues = [];
-     monthlyPrincipalPaymentValues = [];
-     monthlyPrincipalValues = [];
+    let xArray = [];
+    let monthlyInterestPaymentValues = [];
+    let monthlyPrincipalPaymentValues = [];
+    let monthlyPrincipalValues = [];
 
     let remainingPrincipal = initialPrincipal;
+    const montlyInterestRate_r = annualInterestRate / 12;
+    const totalNumberOfPayments_n = loanPeriod * 12;
 
     for (let numPayments = 1; numPayments <= totalNumberOfPayments_n; numPayments++) {
         // Calculate monthly interest payment
-         monthlyInterestPayment = remainingPrincipal * montlyInterestRate_r;
+        let monthlyInterestPayment = remainingPrincipal * montlyInterestRate_r;
 
         // Calculate monthly principal payment
-         monthlyPrincipalPayment = monthlyPayment - monthlyInterestPayment;
+        let monthlyPrincipalPayment = monthlyPayment - monthlyInterestPayment;
 
         // Update remaining principal
         remainingPrincipal -= monthlyPrincipalPayment;
@@ -140,13 +134,13 @@ function main_driver() {
     // derived data from loan information
 
     let principal_P = housePrice - downPayment;
-    let montlyInterestRate_r = annualInterestRate / 12 / 100;
+    let montlyInterestRate_r = annualInterestRate / 12;
     let totalNumberOfPayments_n = loanPeriodInYears * 12;
-    let monthlyMortgagePayments_M = computeMontlyMortgagePayments(principal_P,
+    let monthlyMortgagePayments_M = computeMonthlyMortgagePayments(principal_P,
         montlyInterestRate_r, totalNumberOfPayments_n);
     displayResults(housePrice, downPayment, annualInterestRate, loanPeriodInYears,
-        monthlyMortgagePayments_M);
-    plotMortgageCurves(principal_P, annualInterestRate,
-        monthlyMortgagePayments_M, loanPeriodInYears);
+        monthlyMortgagePayments_M, principal_P);
+    plotValues(getLoanPaymentValues(principal_P, monthlyMortgagePayments_M, annualInterestRate, loanPeriodInYears));
 }
-main_driver();
+
+
