@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Dealer App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="main-style.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Car Dealer App</h1>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="dropdown">
+                <label for="car-type">Car Type:</label>
+                <select id="car-type">
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                    <option value="Mustang">Camero</option>
+                </select>
+            </div>
+            <div class="dropdown">
+                <label for="car-color">Car Color:</label>
+                <select id="car-color">
+                    <option value="Red">Red</option>
+                    <option value="White">White</option>
+                    <option value="Yellow">Black</option>
+                </select>
+            </div>
+            <div class="insurance">
+                <p>Insurance Plan:</p>
+                <label for="no-insurance">No Insurance</label>
+                <input type="radio" id="no-insurance" name="insurance" checked>
+                <br>
+                <label for="3-year-insurance">3-year Insurance</label>
+                <input type="radio" id="3-year-insurance" name="insurance" checked>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <img class="car-image" src="camero.jpeg" alt="Camero Image">
+            <div class="order-description">
+                <p>Description:</p>
+                <textarea rows="4" cols="50">DESCRIPTION.</textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
