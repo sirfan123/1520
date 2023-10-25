@@ -44,7 +44,7 @@ function updateCarImageAndDescription() {
     let insuranceRadio = document.getElementById("3-year-insurance");
     if (insuranceRadio.checked) {
         orderDescription.value = `
-        Car Type: ${selectedCar.type}
+        Vehicle Type: ${selectedCar.type}
         Description: ${selectedCar.description}
         Chosen Color: ${selectedColor}
         Base Price: $${selectedCar.basicPrice}
@@ -53,7 +53,7 @@ function updateCarImageAndDescription() {
 
     else {
         orderDescription.value = `
-        Car Type: ${selectedCar.type}
+        Vehicle Type: ${selectedCar.type}
         Description: ${selectedCar.description}
         Chosen Color: ${selectedColor}
         Base Price: $${selectedCar.basicPrice}`;
