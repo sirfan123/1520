@@ -30,7 +30,6 @@ function updateCarColorDropdown() {
         carColorDropdown.appendChild(option);
     });
 
-    carColorDropdown.value = selectedColor;
     let carImage = document.querySelector(".car-image");
     carImage.src = `${selectedCar.type}/${selectedColor.toLowerCase()}${selectedCar.type}.jpeg`;
 }
@@ -42,19 +41,32 @@ function updateCarImageAndDescription() {
 
     let orderDescription = document.querySelector(".order-description textarea");
     let insuranceCost = (selectedCar.basicPrice * 0.3).toFixed(2);
-    orderDescription.value = `
+    let insuranceRadio = document.getElementById("3-year-insurance");
+    if (insuranceRadio.checked) {
+        orderDescription.value = `
         Car Type: ${selectedCar.type}
         Description: ${selectedCar.description}
         Chosen Color: ${selectedColor}
-        Basic Price: $${selectedCar.basicPrice}
+        Base Price: $${selectedCar.basicPrice}
         Insurance Cost (3-year): $${insuranceCost}`;
+    }
+
+    else {
+        orderDescription.value = `
+        Car Type: ${selectedCar.type}
+        Description: ${selectedCar.description}
+        Chosen Color: ${selectedColor}
+        Base Price: $${selectedCar.basicPrice}`;
+    }
+
+
 }
 
 // Initialize the page with the default values
 window.addEventListener("load", initialBlock);
 
 function initialBlock() {
-    // Set the car type drop-down to "Motorctcle"
+    // Set the car type drop-down to "Motorcycle"
     let carTypeDropdown = document.getElementById("car-type");
     carTypeDropdown.value = selectedCar.type;
 
@@ -67,13 +79,32 @@ function initialBlock() {
 
     // Update the car image and purchase description
     updateCarImageAndDescription();
-
+    // Initial state is done
+    
+    //if color is changed call this
     changeColor();
+    //if car type is changed call this
     changeCarType();
-    changeDescription();
-
+    //if either button is changed call this
+    changeButton();
 }
 
+//func changes description based on radio button
+// Add event listeners to both radio buttons
+function changeButton() {
+    const noInsuranceButton = document.getElementById("no-insurance");
+    noInsuranceButton.addEventListener("change", () => {
+    updateCarImageAndDescription();
+
+    const insuranceButton = document.getElementById("3-year-insurance");
+    insuranceButton.addEventListener("change", () => {
+    updateCarImageAndDescription();
+});
+    
+});
+}
+
+// func changes image and description based on car-colo
 function changeColor() {
     // Event listener for car color dropdown
     let carColorDropdown = document.getElementById("car-color");
@@ -83,13 +114,14 @@ function changeColor() {
     });
 }
 
+// func changes image and description as well as available colors based on car-type
 function changeCarType() {
     // Event listener for car type dropdown
     let carTypeDropdown = document.getElementById("car-type");
     carTypeDropdown.addEventListener("change", () => {
         // Get the selected car type from the dropdown
         let selectedCarType = carTypeDropdown.value;
-        
+
         // Update selectedCar based on the selected car type
         switch (selectedCarType) {
             case 'Motorcycle':
@@ -102,7 +134,7 @@ function changeCarType() {
                 selectedCar = Camero;
                 break;
         }
-        
+
         // Update the selectedColor to the first available color
         selectedColor = selectedCar.colors[0];
 
