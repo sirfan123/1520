@@ -9,9 +9,20 @@ class Car {
 }
 
 // Create three cars
-const Motorcycle = new Car("Motorcycle", ["Red", "White", "Yellow"], "Motorcycle Description", 30000);
-const Lamborghini = new Car("Lamborghini", ["Blue", "Green", "Yellow"], "Lamborghini Description", 300000);
-const Camero = new Car("Camero", ["Black", "Silver", "White"], "Mustang Description", 60000);
+const Motorcycle = new Car("Motorcycle", ["Red", "White", "Yellow"], 
+`"The Yamaha YZF-R1 has been a highly successful Superbike platform, especially during the MotoAmerica era. 
+The bike has captured all but one Medallia Superbike Championship since 2015, MotoAmerica's inaugural season."`
+, 30000);
+
+const Lamborghini = new Car("Lamborghini", ["Blue", "Green", "Yellow"], 
+`"Lamborghini engines are generally exclusive and are never used in other cars, which makes them even more alluring and appealing. 
+Unique eye-catchy designs of Lamborghini make them recognisable from a distance."`
+, 300000);
+
+const Camero = new Car("Camero", ["Black", "Silver", "White"], 
+`"The Chevrolet Camaro is a mid-size American automobile manufactured by Chevrolet, classified as a pony car. 
+It first went on sale on September 29, 1966, for the 1967 model year and was designed to compete with the Ford Mustang." `, 
+60000);
 
 // Set the initial selected car
 let selectedCar = Camero;
@@ -20,7 +31,7 @@ let selectedColor = Camero.colors[0]; // Default to the first available color
 // Function to update the Car Color drop-down menu using DOM functions
 function updateCarColorDropdown() {
     let carColorDropdown = document.getElementById("car-color");
-    carColorDropdown.innerHTML = '';
+    carColorDropdown.innerText = '';
 
 
     selectedCar.colors.forEach((color) => {
@@ -39,11 +50,11 @@ function updateCarImageAndDescription() {
     let carImage = document.querySelector(".car-image");
     carImage.src = `${selectedCar.type}/${selectedColor.toLowerCase()}${selectedCar.type}.jpeg`;
 
-    let orderDescription = document.querySelector(".order-description textarea");
+    let carDescription = document.querySelector(".order-description textarea");
     let insuranceCost = (selectedCar.basicPrice * 0.3).toFixed(2);
     let insuranceRadio = document.getElementById("3-year-insurance");
     if (insuranceRadio.checked) {
-        orderDescription.value = `
+        carDescription.innerHTML = `
         Vehicle Type: ${selectedCar.type}
         Description: ${selectedCar.description}
         Chosen Color: ${selectedColor}
@@ -52,11 +63,12 @@ function updateCarImageAndDescription() {
     }
 
     else {
-        orderDescription.value = `
+        carDescription.innerHTML = `
         Vehicle Type: ${selectedCar.type}
         Description: ${selectedCar.description}
         Chosen Color: ${selectedColor}
-        Base Price: $${selectedCar.basicPrice}`;
+        Base Price: $${selectedCar.basicPrice}
+        Insurance Cost (No Insurance): $${0.00}`;
     }
 
 
