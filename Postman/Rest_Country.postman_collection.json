@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "50f03701-171a-4882-b7dc-aa7574335601",
+		"name": "Rest_Country",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30920367"
+	},
+	"item": [
+		{
+			"name": "listOfCountries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/all?fields=name",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"all"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Canada",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/name/Canada",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"name",
+						"Canada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dollar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/currency/dollar",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"currency",
+						"dollar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Portugese",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/lang/portuguese",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"lang",
+						"portuguese"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "southAmerica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/region/South America",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"region",
+						"South America"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kinshasa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/capital/Kinshasa",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"capital",
+						"Kinshasa"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://restcountries.com/v3.1",
+			"type": "string"
+		}
+	]
+}
