@@ -43,7 +43,7 @@ body {
     margin-bottom: 10px;
 }
 
-.car-image {
+car-image {
     width: 100%;
     max-width: 400px;
     display: block;
@@ -52,6 +52,8 @@ body {
 
 .order-description {
     margin-top: 20px;
+    display: inline-block;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
