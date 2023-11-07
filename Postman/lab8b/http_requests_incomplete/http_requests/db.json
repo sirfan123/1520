@@ -1,0 +1,55 @@
+{
+  "Phones": [
+    {
+      "Brand": "Apple Iphone 15 Pro Max",
+      "Price": 1000,
+      "Screen": "6.7 inches",
+      "Pixels": "1290 x 2796",
+      "Resolution": "460 PPI",
+      "Storage": "1000 GB",
+      "Ram": "8 GB",
+      "Battery": "4441 mAh",
+      "Weight": "7.81 ounces",
+      "id": 1
+    },
+    {
+      "Brand": "Samsung Galaxy S21 Ultra",
+      "Price": "949.97",
+      "Screen": "6.8 inches",
+      "Pixels": "1440 x 3200",
+      "Resolution": "516 PPI",
+      "Storage": "512 GB",
+      "Ram": "16 GB",
+      "Battery": "5000 mAh",
+      "Weight": "8.01 ounces",
+      "id": 2
+    },
+    {
+      "Brand": "Samsung Galaxy Z Fold 4",
+      "Price": "1399.97",
+      "Screen": "7.6 inches",
+      "Pixels": "1812 x 2176",
+      "Resolution": "373 PPI",
+      "Storage": "512 GB",
+      "Ram": "12 GB",
+      "Battery": "4400 mAh",
+      "Weight": "9.28 ounces",
+      "id": 3
+    },
+    {
+      "Brand": "Apple Iphone 12 Pro Max",
+      "Price": "1041.83",
+      "Screen": "6.1 inches",
+      "Pixels": "1170 x 2532",
+      "Resolution": "457 PPI",
+      "Storage": "256 GB",
+      "Ram": "6 GB",
+      "Battery": "2815 mAh",
+      "Weight": "6.67 ounces",
+      "id": 4
+    }
+  ],
+  "info": {
+    "Info": "to simulate an API from this db.json, type the following commande in the terminal window: npx json-server --watch db.json --port 8000"
+  }
+}

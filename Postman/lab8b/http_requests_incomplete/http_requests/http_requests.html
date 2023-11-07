@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http_requests.js"></script>
+</head>
+
+<body>
+    <h2 id="title"> Smartphones API </h2>
+    <fieldset>
+        <legend> View All Smartphones </legend>
+        <button type="button" id="viewAllPhonesButton"> View all Smartphone entries </button>
+        <br>        
+    </fieldset>
+
+    <fieldset>
+        <legend> View details of a single Smartphone </legend>
+        <button type="button" id="getOnePhoneButton"> View Smartphone </button>
+        <input  type="text"   id="phoneIDTextInput" placeholder="Enter Smartphone ID number">
+        <br>
+    </fieldset>
+
+    <fieldset>
+        <legend> Add a new Smartphone </legend>
+        <button type="button" id="addNewSmartPhoneButton"> Add new Smartphone </button> <br>
+        <input  type="text"   id="insertNewBrandInput" placeholder="Enter Brand..."><br>
+        <input  type="text"   id="insertNewPriceTextInput" placeholder="Enter Price..."><br>
+        <input  type="text"   id="insertNewScreenSizeTextInput" placeholder="Enter Screen Size..."><br>
+        <input  type="text"   id="insertNewPixelsTextInput" placeholder="Enter Pixels..."><br>
+        <input  type="text"   id="insertNewScreenResTextInput" placeholder="Enter Screen Resolution..."><br>
+        <input  type="text"   id="insertNewStorageTextInput" placeholder="Enter Storage..."><br>
+        <input  type="text"   id="insertNewRAMTextInput" placeholder="Enter RAM Size..."><br>
+        <input  type="text"   id="insertNewBatteryTextInput" placeholder="Enter Battery Capacity..."><br>
+        <input  type="text"   id="insertNewWeightTextInput" placeholder="Enter Weight..."><br>
+        
+    </fieldset>
+
+    <fieldset>
+        <legend> Update an existing Blog </legend>
+        <button type="button" id="updateExistingPhoneButton"> Update Phone </button><br>
+        <input  type="text"   id="updatePhoneIDTextInput" placeholder="Enter Smartphone ID num"><br>
+        <input  type="text"   id="updateBrandInput" placeholder="Enter Brand..."><br>
+        <input  type="text"   id="updatePriceTextInput" placeholder="Enter Price..."><br>
+        <input  type="text"   id="updateScreenSizeTextInput" placeholder="Enter Screen Size..."><br>
+        <input  type="text"   id="updatePixelsTextInput" placeholder="Enter Pixels..."><br>
+        <input  type="text"   id="updateScreenResTextInput" placeholder="Enter Screen Resolution..."><br>
+        <input  type="text"   id="updateStorageTextInput" placeholder="Enter Storage..."><br>
+        <input  type="text"   id="updateRAMTextInput" placeholder="Enter RAM Size..."><br>
+        <input  type="text"   id="updateBatteryTextInput" placeholder="Enter Battery Capacity..."><br>
+        <input  type="text"   id="updateWeightTextInput" placeholder="Enter Weight..."><br>
+    </fieldset>
+
+    <fieldset>
+        <legend> Deleting an existing Phone </legend>
+        <button type="button" id="deleteExistingPhoneButton"> Delete Phone </button> 
+        <input  type="text"   id="deleteExistingPhoneTextInput" placeholder="Enter Phone ID..."><br>
+    </fieldset>
+
+    <!-- add fieldset for displaying output from http requests -->
+    <!-- ADD YOUR CODE HERE -->
+    <fieldset>
+        <legend> HTTP Request Output </legend>
+        <div id="output">
+
+        </div>
+    </fieldset>
+    
+
+</body>
+
+</html>
