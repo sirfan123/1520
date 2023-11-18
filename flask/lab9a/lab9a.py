@@ -17,7 +17,6 @@ def buy_tickets(play_name):
 @app.route("/transaction_page/<play_name>", methods=["GET", "POST"])
 def transaction_page(play_name):
     if request.method == "POST":
-        # Get form data
         seat_zone = request.form.get("seat_zone")
         section = request.form.get("section")
         time = request.form.get("time")
@@ -34,8 +33,7 @@ def transaction_page(play_name):
             customer_name=customer_name,
         )
 
-    # If it's not a POST request, redirect to the home page or handle as needed
-    return redirect(url_for("default"))
+    return redirect(url_for("default")) # ERROR GO MAIN
 
 
 if __name__ == "__main__":
