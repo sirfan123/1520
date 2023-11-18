@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ play_name }} Details</title>
+    <link href="/static/styles/styles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="playDetails">
+        <img src="/static/images/{{ play_name|lower }}1.png" alt="{{ play_name }}">
+        <div class="play-content">
+            <p>“What a hilarious tour-de-force this show is.” – Buffalo Theatre Guide
+
+                “A hilariously fun time showcasing the power of fighting for your family in whatever form it takes...” – DC Theater Arts
+                
+                A new musical comedy about the things we do to stay together.
+                
+                Everyone’s favorite Scottish nanny is headed to Pittsburgh! Rob McClure will reprise his Tony-nominated Broadway performance 
+                on tour alongside co-star (and real wife!) Maggie Lakis in this internationally acclaimed hit musical critics call “wonderful, 
+                heart-warming, and laugh-out-loud funny” (Manchester Evening News) and “a feel-good, family-friendly comedy that delivers” (The 
+                Hollywood Reporter). Based on the beloved film and directed by four-time Tony Award® winner Jerry Zaks, MRS. DOUBTFIRE tells the 
+                hysterical and heartfelt story of an out-of-work actor who will do anything for his kids. It’s “the lovable, big-hearted musical 
+                comedy we need right now,” raves the Chicago Tribune – one that proves we’re better together.
+            </p>
+            <div class="buy-tickets-button">
+                <a href="{{ url_for('buy_tickets', play_name=play_name) }}">Buy Tickets</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction Information</title>
+    <link href="/static/styles/styles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h2>Transaction Information for {{ play_name }}</h2>
+    <p>Seat Zone: {{ seat_zone }}</p>
+    <p>Section: {{ section }}</p>
+    <p>Time: {{ time }}</p>
+    <p>Date: {{ date }}</p>
+    <p>Customer Name: {{ customer_name }}</p>
+
+    <a href="{{ url_for('default') }}">Back to Main Page</a>
+</body>
+
+</html>

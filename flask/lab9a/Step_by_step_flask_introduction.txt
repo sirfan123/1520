@@ -1,0 +1,268 @@
+1. Installing python
+    a) www.python.org/downloads. 
+       Note: Use customize installation: add python to your path, check all the checkboxes
+    b) Testing the python installation
+       * in the command/terminal window, type "python --version"
+
+2. Create a new directory to hold the VS Code project
+    a) make the following directory: flask_first_project
+
+3. Run the VS Code in that given directory
+
+4. Installing pip via VS Code terminal window
+    a) in the terminal window, type: py -m pip install --upgrade pip
+
+    Important Note: some MS Windows users will get an error in the above command. 
+                    One possible cause of such problem is the execution policy in  
+                    your computer. To check what policy you have in your computer 
+                    and change it if necessary is shown below:
+        i)   Select Start > All Programs > Windows PowerShell version > Windows PowerShell.
+        ii)  Type Set-ExecutionPolicy RemoteSigned to set the policy to RemoteSigned.
+        iii) Type Set-ExecutionPolicy Unrestricted to set the policy to Unrestricted.
+        iv)  Type Get-ExecutionPolicy to verify the current settings for the execution policy.
+        v)   Type Exit.
+
+5. Creating and activating a virtual environment
+    a) Creating a virtual environment: from within VS Code terminal window type: python -m venv .
+    b) Activating the virtual environment
+       i)  In Mac OS type:   source ./bin/activate
+       ii) In Windows type:  .\Scripts\activate
+    Note: check if your terminal command prompt has the project name in between parenthesis
+
+6. Intalling Flask and Flask SQLAlchemy libraries
+    a) in the terminal window, type: pip install flask flask-sqlalchemy
+
+7. Creating our first Flask web application
+    a) Create a file main_app.py in the VS Code project
+    b) add the following code into that file
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
+
+8. Running your flask application
+    a) double ckeck that your virtual enviroment is on. If not, use step 5 
+       to activate the virtual environment
+    b) In the terminal window, type "python main_app.py"
+       You should see the following message in the terminal window:
+       Running on http://127.0.0.1:5000/ (Press CTRL+C)
+    c) open your web browser and check if you get "hello world!"
+
+9. Adding more endpoints to your application
+    a) copy the following code into your main_app.ppy
+
+@app.route("/")
+def hello():
+    return "Oh! Hello again!"
+
+@app.route("/foo")
+def fooController():
+    return "<h1>THIS IS THE FOO PAGE</h1>"
+
+@app.route("/bar")
+def bar():
+    return "<h1>this is the bar page</h1>"
+
+    b) run your application and visit all endpoints from your web browser
+
+10. Updating the root endpoint
+    a) In the main_app.py, remove all existing endpoints ("/", "foo", and "bar)
+    b) Add the following code:
+
+# by default, redirect calls to the root endpoint to the login page
+@app.route("/")
+def default():
+    print("Root route: Redirecting request from root page to login page...")
+    return redirect(url_for("login_controller"))
+
+    c) Add the following imports:
+       from flask import Flask, url_for, redirect
+
+11. Creating the login controller endpoint
+    a) In the main_page.py, add the following code
+
+@app.route("/login/")
+def login_controller():
+    print("Login route: GET request: displaying the login page...")
+    return render_template("login.html")
+
+    b) Add the following import: render_template
+
+12. Creating the login.html page
+    a) All pages should be placed in the "templates" directory 
+    b) Create the “templates” directory in your project
+    c) Create the html page: login.html and place the code below in it
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic form</title>
+</head>
+<body>
+    <form action="" method="post">
+        Username:  <input type="text" name="user" />
+        <br />
+        Password:  <input type="text" name="pass" />
+        <br />
+        <input type="submit" value="submit" />
+    </form>
+</body>
+</html>
+
+13. Test your code
+    a) In the terminal window, type "python main_app.py"
+       You should see the following message in the terminal window:
+       Running on http://127.0.0.1:5000/ (Press CTRL+C)
+    b) open your web browser and check if you are forwarded to the login page automatically
+
+14. Adding functionality to handle the POST request in the login route
+    a) Add a fake database containing usernames and their passwords, 
+       after the line "app = Flask(__name__)"
+
+# fake users database
+users = {"alice":"qwert", "bob":"asdfg", "charlie":"zxcvb"}
+
+    b) add the following code
+    
+@app.route("/login/", methods=["GET", "POST"])
+def login_controller():
+    # if not, check if the incoming request is via GET request; show the login page
+    if request.method == "GET": 
+        print("Login route: GET request: displaying the login page...")
+        return render_template("login.html")
+
+    # if the incoming request is via POST request, process the login input
+    elif request.method == "POST":
+        # checking if the user is in the users fake database
+        if request.form["user"] in users:
+            print("Login route: POST request: User is in the user database")
+            # checking if the right password has been entered
+            if users[request.form["user"]] == request.form["pass"]:
+                print("Login route: POST request: password matches: adding user in session object")
+                # redirect the user to his/her profile page
+                print("Login route: POST Request: redirecting to the user profile page...")
+                return redirect(url_for("profile", username=request.form["user"]))
+            else:
+                # wrong password
+                print("Login route: POST Request: wrong password: aborting process...")
+                abort(401)
+        else:
+            # wrong username
+            print("Login route: POST request: user is not registered in the database: Aborting process...")
+            abort(404)
+
+    c) Add the following imports: request and abort 
+
+15. Creating the profile endpoint
+    a) in the main_app.py, add the following endpoint
+
+@app.route("/profile/<username>")
+def profile(username):
+    return render_template("user_profile.html")
+
+16. Creating the user_profile html page 
+    a) In the templates directory, create the following file
+    File: user_profile.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your profile!</title>
+</head>
+<body>
+    <h2> Welcome back ADD NAME HERE! </h2>
+</body>
+</html>
+
+17. Test your application
+    a) Test case 01: enter non-registered user
+    b) Test case 02: enter wrong password for registered user
+    c) Test case 03: enter valid username and password
+
+18. Personalizing the user profile page
+    a) adding the username in the user_profile page
+       in the user_profile.html file
+       i)  replace: <h2> Welcome back ADD NAME HERE! </h2>
+           with:    <h2> Welcome back {{ username }}! </h2>
+       ii) passing the username info to this page via python
+           in the main_app.py file:
+           * replace: return render_template("user_profile.html")
+           * with:    return render_template("user_profile.html", username=username)
+
+19. Using session objects to remember if user has previously logged in.
+    Skipping login if user has been already logged in
+
+    a) in the main_app.py file, in the login route add the following code:
+    # check if the user has been logged in from previous visit to this site
+    # if so, go to his/her profile page
+    if "username" in session:
+        print("Login route: User is already logged in; redirecting to the user profile page...")
+        return redirect(url_for("profile", username=session["username"]))
+
+    b) add "session" in the imports
+    c) add the following code:
+
+                if users[request.form["user"]] == request.form["pass"]:
+                print("Login route: POST request: password matches: adding user in session object")
+     ==>        # user has successfully logged in, so save his/her info in the session
+     ==>        session["username"] = request.form["user"]
+                # redirect the user to his/her profile page
+                print("Login route: POST Request: redirecting to the user profile page...")
+                return redirect(url_for("profile", username=request.form["user"]))
+
+    d) Add required lines at the end of your main_app.py
+# needed to use sessions
+app.secret_key = "this is a secret key"
+
+20. Test your application
+    a) run your app and enter a valid username and password
+       You should be redirected to profile/username
+    b) open a new window in your browser and go to the root and check if you are
+       redirectly to the user profile automatically 
+
+21. Logging out and removing user from session
+    a) when rendering the user profile page, send info about logout page
+@app.route("/profile/<username>")
+def profile(username):
+    return render_template("user_profile.html", username=username, refToLogout=url_for("unlogger"))
+
+    b) in the user_profile.html page, add the following link
+    <a href="{{ refToLogout }}">click here to logout</a>
+
+    c) Create the route for the logout page
+@app.route("/logout/")
+def unlogger():
+    print("Logout route: username is in session object. Deleting it from there and rendering the logout page...")
+    # note, here were calling the .clear() method for the python dictionary builtin
+    session.clear()
+    return render_template("logout.html", login_page=url_for("login_controller"))
+
+22. Creating the logout.html page
+In the templates directory, add the following file
+    File: logout.html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Logged out</title>
+    </head>
+    <body>
+        <h2>You have successfully been logged out!</h2>
+        <a href={{login_page}}>Login Again</a>
+    </body>
+</html>
+
+23. Test your application
+    a) login with a valid username and password
+    b) open a new browser window and check if you are automatically
+       redirected to the user profile page
+    c) click on the logout link in the user profile page and check
+       if you are sent to the logout page
+    d) open a new browser window and check that you are sent to the 
+       login page, not to the user profile page anymore

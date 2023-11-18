@@ -1,0 +1,52 @@
+<!-- buy_tickets.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Tickets</title>
+    <link href="/static/styles/styles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id = "container">
+    <div id = "stage">
+     <img src="/static/images/stage.png" alt="Stage" >    
+    </div>
+   
+  
+    <form method="post" action="{{ url_for('transaction_page', play_name=play_name) }}">
+          <h2>Buy Tickets for Mrs. {{ play_name }}</h2>
+        <label for="seat_zone">Seat Zone:</label>
+        <select id="seat_zone" name="seat_zone">
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="orange">Orange</option>
+        </select><br>
+
+        <label for="section">Section:</label>
+        <select id="section" name="section">
+            <option value="Right">Right</option>
+            <option value="Right Center">Right Center</option>
+            <option value="Center">Center</option>
+            <option value="Left Center">Left Center</option>
+            <option value="Left">Left</option>
+        </select><br>
+
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" placeholder="Enter time"><br>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" placeholder="Enter date"><br>
+
+        <label for="customer_name">Your Name:</label>
+        <input type="text" id="customer_name" name="customer_name" placeholder="Enter your name"><br>
+
+        <input type="submit" value="Buy Tickets">
+    </form>
+</div>
+</body>
+
+</html>

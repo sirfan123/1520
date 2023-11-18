@@ -1,0 +1,92 @@
+<!-- main_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="/static/styles/styles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="movieDiv">
+        <ul class="video-cards">
+            <li>
+                <a href="{{ url_for('play_details', play_name='Doubtfire') }}">
+                    <img src="static/images/doubtfire.png" alt="Mrs. Doubtfire">
+                </a>
+                <div class="card-content">
+                    <h3>Mrs. Doubtfire</h3>
+                    <p>Tue, Nov 28 - Sun, Dec 3, 2023<br>
+                        BENEDUM CENTER<br>
+                        PNC Broadway in Pittsburgh<br>
+                        Broadway & Musical Theater</p>
+                </div>
+            </li>
+            <!-- Add more plays as needed -->
+            <li>
+                <img src="static/images/creative.png" alt="Creative Conversations — Mrs. Doubtfire">
+                <div class="card-content">
+                    <h3>Creative Conversations — Mrs. Doubtfire</h3>
+                    <p> Wed, Nov 29, 2023<br>
+                        TRUST ARTS EDUCATION CENTER<br>
+                        Pittsburgh Cultural Trust<br>
+                        Broadway & Musical Theater Talks & Poetry<br>
+                    </p>
+                </div>
+            </li>
+            <!-- Add more plays as needed -->
+            <li>
+                <img src="static/images/talkBack.png" alt="Mrs. Doubtfire — Broadway Talk Back Series">
+                <div class="card-content">
+                    <h3>Mrs. Doubtfire — Broadway Talk Back Series</h3>
+                    <p> Wed, Nov 29, 2023<br>
+                        BENEDUM CENTER<br>
+                        Pittsburgh Cultural Trust<br>
+                        Broadway & Musical Theater Talks & Poetry<br>
+                    </p>
+                </div>
+            </li>
+            <!-- Add more plays as needed -->
+            <li>
+                <img src="static/images/story.png" alt="A Christmas Story: The Play">
+                <div class="card-content">
+                    <h3>A Christmas Story: The Play</h3>
+                    <p> Play by Philip Grecian<br>
+                        Thu, Dec 7 - Sat, Dec 23, 2023<br>
+                        O'REILLY THEATER<br>
+                        Pittsburgh Public Theater<br>
+                        Comedy Broadway & Musical Theater Family<br>
+                    </p>
+                </div>
+            </li>
+            <!-- Add more plays as needed -->
+            <li>
+                <img src="static/images/carol.png" alt="A Musical Christmas Carol">
+                <div class="card-content">
+                    <h3>A Musical Christmas Carol</h3>
+                    <p> Wed, Dec 13 - Sat, Dec 23, 2023<br>
+                        BYHAM THEATER<br>
+                        Pittsburgh CLO<br>
+                        Broadway & Musical Theater Family<br>
+                    </p>
+                </div>
+            </li>
+            <!-- Add more plays as needed -->
+            <li>
+                <img src="static/images/lyricalCarol.png" alt="A Lyrical Christmas Carol">
+                <div class="card-content">
+                    <h3>A Lyrical Christmas Carol</h3>
+                    <p> Wed, Dec 13 - Sun, Dec 17, 2023<br>
+                        GARGARO THEATER<br>
+                        Pittsburgh Musical Theater<br>
+                        Broadway & Musical Theater Family<br>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--------------------------------------------------------------------------------------------------------->
+</body>
+
+</html>
