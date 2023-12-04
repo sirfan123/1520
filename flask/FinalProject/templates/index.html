@@ -6,82 +6,202 @@
     <meta charset="UTF-8">
     <title>Main Page</title>
     <link href="/static/styles/styles.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/main.js"></script>
 </head>
 
 <body>
-    <div id="movieDiv">
-        <ul class="video-cards">
-            <li>
-                <a href="{{ url_for('play_details', play_name='Doubtfire') }}">
-                    <img src="static/images/doubtfire.png" alt="Mrs. Doubtfire">
-                </a>
-                <div class="card-content">
-                    <h3>Mrs. Doubtfire</h3>
-                    <p>Tue, Nov 28 - Sun, Dec 3, 2023<br>
-                        BENEDUM CENTER<br>
-                        PNC Broadway in Pittsburgh<br>
-                        Broadway & Musical Theater</p>
-                </div>
-            </li>
-            <li>
-                <img src="static/images/creative.png" alt="Creative Conversations — Mrs. Doubtfire">
-                <div class="card-content">
-                    <h3>Creative Conversations — Mrs. Doubtfire</h3>
-                    <p> Wed, Nov 29, 2023<br>
-                        TRUST ARTS EDUCATION CENTER<br>
-                        Pittsburgh Cultural Trust<br>
-                        Broadway & Musical Theater Talks & Poetry<br>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <img src="static/images/talkBack.png" alt="Mrs. Doubtfire — Broadway Talk Back Series">
-                <div class="card-content">
-                    <h3>Mrs. Doubtfire — Broadway Talk Back Series</h3>
-                    <p> Wed, Nov 29, 2023<br>
-                        BENEDUM CENTER<br>
-                        Pittsburgh Cultural Trust<br>
-                        Broadway & Musical Theater Talks & Poetry<br>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <img src="static/images/story.png" alt="A Christmas Story: The Play">
-                <div class="card-content">
-                    <h3>A Christmas Story: The Play</h3>
-                    <p> Play by Philip Grecian<br>
-                        Thu, Dec 7 - Sat, Dec 23, 2023<br>
-                        O'REILLY THEATER<br>
-                        Pittsburgh Public Theater<br>
-                        Comedy Broadway & Musical Theater Family<br>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <img src="static/images/carol.png" alt="A Musical Christmas Carol">
-                <div class="card-content">
-                    <h3>A Musical Christmas Carol</h3>
-                    <p> Wed, Dec 13 - Sat, Dec 23, 2023<br>
-                        BYHAM THEATER<br>
-                        Pittsburgh CLO<br>
-                        Broadway & Musical Theater Family<br>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <img src="static/images/lyricalCarol.png" alt="A Lyrical Christmas Carol">
-                <div class="card-content">
-                    <h3>A Lyrical Christmas Carol</h3>
-                    <p> Wed, Dec 13 - Sun, Dec 17, 2023<br>
-                        GARGARO THEATER<br>
-                        Pittsburgh Musical Theater<br>
-                        Broadway & Musical Theater Family<br>
-                    </p>
-                </div>
-            </li>
-        </ul>
+    <div class="Header">
+        <h1>Mcdonalds menu</h1>
+        <p>Mcdonalds is the world's largest chain of hamburger fast-food restaurants founded in 1940. It features
+            various burgers, types of chicken, chicken sandwiches, french fries
+            , soft drinks, breakfast items and desserts. In most markets, Mcdonalds offers salads and vegetarian
+            items, wraps and so on.
+        </p>
     </div>
-    <!--------------------------------------------------------------------------------------------------------->
+
+    <div class="content-container">
+        <div class="left">
+            <!-- Main Menu -->
+            <div class="menu">
+                <h2>Main Menu</h2>
+                <ul>
+                    <li>
+                        <a href="#burgersAndFries">
+                            <img src="/static/images/burgers/big_mac.jpeg" alt="Burger Image">
+                            <h3>Burgers & Fries</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#drinks">
+                            <img src="/static/images/drinks/coca-cola.jpeg" alt="Drink Image">
+                            <h3>Drinks</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#coffee">
+                            <img src="/static/images/coffees/mocha_latte.jpeg" alt="Coffee Image">
+                            <h3>Coffees</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#desserts">
+                            <img src="/static/images/desserts/McFlurry.jpeg" alt="Dessert Image">
+                            <h3>Desserts</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Burgers and Fries Submenu -->
+            <div class="submenu" id="burgersAndFries">
+                <h2>Burgers, Fries, and Co.</h2>
+                <ul>
+                    <li>
+
+                        <img src="/static/images/burgers/big_mac.jpeg" alt="Burger Image">
+                        <h3>Big Mac</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/burgers/cheeseburger.jpeg" alt="Burger Image">
+                        <h3>Cheeseburger</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/burgers/quarter_pounder.jpeg" alt="Fries Image">
+                        <h3>Quarter Pounder</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/burgers/fries.jpeg" alt="Fries Image">
+                        <h3>Fries</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="submenu" id="drinks">
+                <h2>Drinks</h2>
+                <ul>
+                    <li>
+
+                        <img src="/static/images/drinks/coca-cola.jpeg" alt="Coca Cola Image">
+                        <h3>Coca Cola</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/drinks/dr_pepper.jpeg" alt="Dr Pepper Image">
+                        <h3>Dr Pepper</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/drinks/fanta_orange.jpeg" alt="Fanta Image">
+                        <h3>Fanta</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/drinks/sprite.jpeg" alt="Sprite Image">
+                        <h3>Sprite</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="submenu" id="coffee">
+                <h2>Coffee</h2>
+                <ul>
+                    <li>
+
+                        <img src="/static/images/coffees/cappuccino.jpeg" alt="Cappuccino Image">
+                        <h3>Cappuccino</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/coffees/caramel_macchiato.jpeg" alt="Caramel_macchiato Image">
+                        <h3>Caramel Macchiato</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/coffees/iced_mocha.jpeg" alt="Iced_mocha Image">
+                        <h3>Iced mocha</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/coffees/mocha_latte.jpeg" alt="Mocha_latte Image">
+                        <h3>Mocha latte</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="submenu" id="desserts">
+                <h2>Desserts</h2>
+                <ul>
+                    <li>
+
+                        <img src="/static/images/desserts/baked_apple_pie.jpeg" alt="Apple Pie Image">
+                        <h3>Baked Apple</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/desserts/chocolate_chips_cookie.jpeg" alt="Cookie Image">
+                        <h3>Cookies</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/desserts/hot_fudge_sundae.jpeg" alt="hot_fudge_sundae Image">
+                        <h3>Hot Fudge Sundae</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                    <li>
+
+                        <img src="/static/images/desserts/McFlurry.jpeg" alt="McFlurry Image">
+                        <h3>McFlurry</h3>
+                        <input type="text" placeholder="0">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right">
+            <!-- Order Summary -->
+            <form class="orderForm" action="/order-summary" method="POST">
+                <h2>Order Summary</h2>
+                <textarea id="orderSummary" placeholder="Add your order summary here..."></textarea>
+                <label for="customerName">CustomerName:</label>
+                <input type="text" id="customerName" name="customerName">
+                <button type="submit">Submit Order</button>
+            </form>
+        </div>
+
+    </div>
+    </div>
+
+
+    </div>
 </body>
 
 </html>

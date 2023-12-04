@@ -1,52 +1,145 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
-    background-color: white;
-}
-
-#movieDiv {
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    color: black;
+    height: 100vh;
+    background-image: url('/static/images/background_image.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 
-.video-cards {
-    list-style-type: none;
-    padding: 0;
+.Header {
+    text-align: center;
+    padding: 20px; 
+    width: 50%;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.left {
+    width: 60%;
+    background-color: blue;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menu h2 {
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-around; 
 }
 
-.video-cards li {
+.menu li {
+    margin-right: 20px;
+    flex: 0 0 calc(25% - 20px);
     background-color: white;
-    color: black;
-    margin-right: 3px;
-    margin-top: 25px;
-    height: 500px; 
-    width: 500px; 
-    margin-bottom: 10px; 
-    border: 5px solid black; 
 }
 
-.video-cards li img {
+.menu a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu img {
     width: 100%;
-    height: 60%; 
-    object-fit: cover; 
 }
 
-.card-content {
-    padding: 15px;
+.menu h3 {
+    text-align: center;
+    color: black;
 }
 
-.card-content h3 {
-    margin: 0;
+.submenu {
+    margin-top: 20px;
 }
 
-.card-content p {
-    color: gray;
-    margin-top: 5px;
+.submenu h2 {
+    text-align: center;
+}
+
+.submenu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.submenu li {
+    margin-right: 20px;
+    flex: 0 0 calc(25% - 20px);
+    background-color: white;
+}
+
+.submenu a {
+    text-decoration: none;
+    color: white;
+}
+
+.submenu img {
+    width: 100%;
+}
+
+.submenu h3 {
+    text-align: center;
+    color: black;
+}
+
+.submenu input {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    text-align: center;
+}
+
+.right {
+    width: 35%;
+    background-color: blue;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right h2 {
+    text-align: center;
+}
+
+.orderForm textarea {
+    margin: 10px ;
+    padding: 10px;
+    width: 30vw;
+    height: 30vh;
+}
+
+.orderForm label {
+    margin-top: 10px;
+}
+
+.orderForm input {
+    margin-bottom: 20px;
+}
+
+.orderForm button {
+    background-color: white;
+    color: blue;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
 }
