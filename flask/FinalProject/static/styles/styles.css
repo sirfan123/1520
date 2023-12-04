@@ -5,6 +5,7 @@ body {
     background-image: url('/static/images/background_image.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +27,7 @@ body {
 
 .left {
     width: 60%;
-    background-color: blue;
+
 }
 
 .menu {
@@ -106,7 +107,6 @@ body {
 
 .right {
     width: 35%;
-    background-color: blue;
 }
 
 form {
