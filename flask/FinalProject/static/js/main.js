@@ -7,14 +7,14 @@ var submenuItems;
 
 const prices = {
     'Big Mac': 5.00,
-    'CheeseBurger': 4.00,
+    'Cheeseburger': 4.00,
     'Quarter Pounder': 4.00,
     'Fries': 2.75,
     'Coca Cola': 1.50,
     'Dr Pepper': 1.75,
     'Fanta': 2.00,
     'Sprite': 2.50,
-    'Cappucino': 3.00,
+    'Cappuccino': 3.00,
     'Caramel Macchiato': 3.75,
     'Iced mocha': 3.50,
     'Mocha latte': 3.50,
@@ -24,19 +24,19 @@ const prices = {
     'McFlurry': 5.00
 };
 
-function initial(){
+function initial() {
     retrieveDOM();
     addEventListeners();
     updateOrderSummary();
 }
 
 function retrieveDOM() {
-     orderSummary = document.getElementById('orderSummary');
-     menuItems = document.querySelectorAll('.menu li');
-     submenuItems = document.querySelectorAll('.submenu li input');
+    orderSummary = document.getElementById('orderSummary');
+    menuItems = document.querySelectorAll('.menu li');
+    submenuItems = document.querySelectorAll('.submenu li input');
 }
 
-function addEventListeners(){
+function addEventListeners() {
 
     submenuItems.forEach(submenuItem => {
         submenuItem.addEventListener('input', updateOrderSummary);

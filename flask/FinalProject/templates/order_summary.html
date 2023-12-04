@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+</head>
+
+<body>
+    <h1>Order Summary</h1>
+    <h2>Order #: {{ order_num }}</h2>
+    <p>Customer Name: {{ customer_name }}</p>
+    <ul>
+        {% for item in order_items.split('\n') %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <script>
+        var timeout = 10000;
+        window.setTimeout(sendBackToMainScreen, timeout);
+        function sendBackToMainScreen() {
+            window.location = "http://127.0.0.1:5000";
+        }
+    </script>
+</body>
+
+</html>

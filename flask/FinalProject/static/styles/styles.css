@@ -3,7 +3,7 @@ body {
     padding: 0;
     height: 100vh;
     background-image: url('/static/images/background_image.jpeg');
-    background-size: cover; 
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ body {
 
 .Header {
     text-align: center;
-    padding: 20px; 
+    padding: 20px;
     width: 50%;
 }
 
@@ -120,7 +120,7 @@ form {
 }
 
 .orderForm textarea {
-    margin: 10px ;
+    margin: 10px;
     padding: 10px;
     width: 30vw;
     height: 30vh;

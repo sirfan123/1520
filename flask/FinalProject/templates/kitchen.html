@@ -1,0 +1,41 @@
+<!-- kitchen.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kitchen Orders</title>
+    <link href="/static/styles/kitchen.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Kitchen- List of current orders</h1>
+    <div class="order-container">
+        <ul>
+            {% for order in orders_json %}
+            <li>
+                <h3>Order #{{ order.id }}</h3>
+                <p>Customer Name: {{ order.customer_name }}</p>
+                <p>Orders:</p>
+                <ul>
+                    {% for item in order.orders.split('\n') %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Date Created: {{ order.date_created }}</p>
+                <a href="{{ url_for('delete', id=order.id) }}">Delete Order</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+        var timeout = 5000;
+        window.setTimeout(poller, timeout);
+        function poller() {
+            window.location = "http://127.0.0.1:5000/kitchen";
+            window.setTimeout(poller, timeout);
+        }
+    </script>
+</body>
+
+</html>
